@@ -15,7 +15,6 @@
 
 // On cible le footer et on met cet objet dans la variable "footer"
 let footer = document.querySelectorAll("footer.text-muted")[0];
-console.log(footer)
 
 // On définit un compteur qui est initialisé à 1
 var i = 1
@@ -26,7 +25,7 @@ var displayNumbClicks = function() {
 	i += 1;
 };
 
-// On dit au navigateur d'exécuter la fonction 'displayNumbClicks' lorsque l'utilisateur clique 'click' sur l'objet 'footer'
+// On dit au navigateur d'exécuter la fonction 'displayNumbClicks' lorsque l'utilisateur clique ('click') sur l'objet 'footer'
 footer.addEventListener("click", displayNumbClicks)
 
 
@@ -37,15 +36,12 @@ footer.addEventListener("click", displayNumbClicks)
 
 // On cible le bouton déroulant (Hamburger Menu") de la navbar
 let navbarHamburger = document.querySelector("button.navbar-toggler");
-console.log(navbarHamburger)
-console.log(navbarHamburger.classList)
-
 
 // On définit la fonction qui va supprimer la classe 'collapse' de l'élément HTML portant l'id 'navbarHeader'
 var deleteCollapseClass = function() {
 	// On cible l'élément portant l'id 'navbarHeader'
 	let navbarHeader = document.getElementById("navbarHeader")
-	// On retire de la liste de ses classes la classe "collapse"
+	// On retire de la liste de ses classes la classe "collapse" si celle-ci est présente et on la remet dans le cas contraire (-> la fonction 'toggle' permet de faire la réversibilité)
 	navbarHeader.classList.toggle("collapse");
 	// On affiche la liste de ses classes pour être sûr que la classe "collapse" a bien été supprimée
 	console.log(navbarHeader.classList);
@@ -62,7 +58,6 @@ navbarHamburger.addEventListener("click", deleteCollapseClass);
 
 // On cible le bouton "Edit" de la première card
 let buttonEditCard1 = document.querySelector("button.btn.btn-sm.btn-outline-secondary");
-console.log(buttonEditCard1)
 
 // On définit la fonction qui va mettre le texte "Edit" de la première card en rouge si on clique dessus
 var applyRed = function() {
@@ -112,7 +107,6 @@ buttonEditCard2.addEventListener("click", applyGreenText)
 //let navbar = document.getElementById("navbarHeader") -> ne cible que la navbar qui s'affiche lorsque l'on clique sur le bouton "Hamburger"
 // On cible tout le header et pas uniquement la navbar
 let navbar = document.getElementsByTagName("header")[0]
-console.log (navbar)
 
 // On définit la fonction qui va enlever la mise en page Bootstrap
 var nuke = function() {
@@ -137,22 +131,23 @@ navbar.addEventListener("dblclick", nuke)
 let viewButton = document.querySelectorAll("button.btn.btn-sm.btn-success")[0];
 console.log(viewButton)
 
-var reduceCards = function(event) {
+var reduceCards = function() {
 	// On cible le texte de la card
   let cardText = document.getElementsByClassName("card-text")[0]
 	// On cache le texte
 	cardText.innerText = "";
-
-	console.log("------------------")
-  console.log(event)
-	console.log("------------------")
-
 
 	// On cible l'image pour la carte
 	let cardImage = document.getElementsByClassName("card-img-top")[0];
 	cardImage.style.width = "80%";
 
   console.log("on va réduire les cards")
+}
+
+let cardText = document.getElementsByClassName("card-text")
+// Boucle sur les 6 cards
+for (let i = 0; i<= 5; i++) {
+  console.log(cardText[i].innerText);
 }
 
 
